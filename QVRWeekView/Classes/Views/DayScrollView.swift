@@ -112,7 +112,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, DayViewCellDelegate, Frame
 
     // MARK: - GESTURE, SCROLL & DATA SOURCE FUNCTIONS -
 
-    func tap(_ sender: UITapGestureRecognizer) {
+    @objc func tap(_ sender: UITapGestureRecognizer) {
 
         if !self.dayCollectionView.isDragging && !self.dayCollectionView.isDecelerating {
             scrollToNearestCell()
@@ -1136,9 +1136,9 @@ struct LayoutVariables {
 extension TextVariables {
 
     // Font for all event labels
-    fileprivate(set) static var eventLabelFont = LayoutDefaults.eventLabelFont
+    public static var eventLabelFont = LayoutDefaults.eventLabelFont
     // Font for all event labels
-    fileprivate(set) static var eventLabelInfoFont = LayoutDefaults.eventLabelThinFont
+    public static var eventLabelInfoFont = LayoutDefaults.eventLabelThinFont
     // Text color for all event labels
     fileprivate(set) static var eventLabelTextColor = LayoutDefaults.eventLabelTextColor
     // Minimum scaling for all event labels

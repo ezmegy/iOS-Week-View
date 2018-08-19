@@ -150,8 +150,8 @@ open class EventData: CustomStringConvertible, Equatable, Hashable {
     open func getDisplayString(withMainFont mainFont: UIFont = TextVariables.eventLabelFont, andInfoFont infoFont: UIFont = TextVariables.eventLabelInfoFont) -> NSAttributedString {
         let df = DateFormatter()
         df.dateFormat = "HH:mm"
-        let mainFontAttributes: [String: Any] = [NSFontAttributeName: mainFont, NSForegroundColorAttributeName: TextVariables.eventLabelTextColor.cgColor]
-        let infoFontAttributes: [String: Any] = [NSFontAttributeName: infoFont, NSForegroundColorAttributeName: TextVariables.eventLabelTextColor.cgColor]
+        let mainFontAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.font: mainFont, NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): TextVariables.eventLabelTextColor.cgColor]
+        let infoFontAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.font: infoFont, NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): TextVariables.eventLabelTextColor.cgColor]
         let mainAttributedString = NSMutableAttributedString(string: self.title, attributes: mainFontAttributes)
         if !self.allDay {
             var startShow = self.startDate
